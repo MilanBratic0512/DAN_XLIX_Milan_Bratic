@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Zadatak_49ModelStoreContainer" CdmEntityContainer="Zadatak_49Entities">
+    <EntitySetMapping Name="tblAbsences">
+      <EntityTypeMapping TypeName="Zadatak_49Model.tblAbsence">
+        <MappingFragment StoreEntitySet="tblAbsence">
+          <ScalarProperty Name="AbsenceID" ColumnName="AbsenceID" />
+          <ScalarProperty Name="AbsenceStart" ColumnName="AbsenceStart" />
+          <ScalarProperty Name="AbsenceEnd" ColumnName="AbsenceEnd" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="EmployerID" ColumnName="EmployerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployers">
+      <EntityTypeMapping TypeName="Zadatak_49Model.tblEmployer">
+        <MappingFragment StoreEntitySet="tblEmployer">
+          <ScalarProperty Name="EmployerID" ColumnName="EmployerID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="EmployerPassword" ColumnName="EmployerPassword" />
+          <ScalarProperty Name="HotelFloor" ColumnName="HotelFloor" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
+          <ScalarProperty Name="Engagement" ColumnName="Engagement" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblManagers">
+      <EntityTypeMapping TypeName="Zadatak_49Model.tblManager">
+        <MappingFragment StoreEntitySet="tblManager">
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="MannagerPassword" ColumnName="MannagerPassword" />
+          <ScalarProperty Name="HotelFloor" ColumnName="HotelFloor" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="ProfessionalQualifications" ColumnName="ProfessionalQualifications" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOwners">
+      <EntityTypeMapping TypeName="Zadatak_49Model.tblOwner">
+        <MappingFragment StoreEntitySet="tblOwner">
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="OwnerPassword" ColumnName="OwnerPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
