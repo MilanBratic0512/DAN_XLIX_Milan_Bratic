@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Zadatak_49Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAbsence">
+    <Key>
+      <PropertyRef Name="AbsenceID" />
+    </Key>
+    <Property Name="AbsenceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AbsenceStart" Type="DateTime" Precision="0" />
+    <Property Name="AbsenceEnd" Type="DateTime" Precision="0" />
+    <Property Name="Reason" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="EmployerID" Type="Int32" />
+    <NavigationProperty Name="tblEmployer" Relationship="Self.FK__tblAbsenc__Emplo__30F848ED" FromRole="tblAbsence" ToRole="tblEmployer" />
+  </EntityType>
+  <EntityType Name="tblEmployer">
+    <Key>
+      <PropertyRef Name="EmployerID" />
+    </Key>
+    <Property Name="EmployerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="Mail" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="EmployerPassword" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="HotelFloor" Type="Int32" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Citizenship" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Engagement" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="tblAbsences" Relationship="Self.FK__tblAbsenc__Emplo__30F848ED" FromRole="tblEmployer" ToRole="tblAbsence" />
+  </EntityType>
+  <EntityType Name="tblManager">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="Mail" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="MannagerPassword" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="HotelFloor" Type="Int32" />
+    <Property Name="Experience" Type="Int32" />
+    <Property Name="ProfessionalQualifications" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblOwner">
+    <Key>
+      <PropertyRef Name="OwnerID" />
+    </Key>
+    <Property Name="OwnerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="Mail" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerPassword" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__tblAbsenc__Emplo__30F848ED">
+    <End Role="tblEmployer" Type="Self.tblEmployer" Multiplicity="0..1" />
+    <End Role="tblAbsence" Type="Self.tblAbsence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployer">
+        <PropertyRef Name="EmployerID" />
+      </Principal>
+      <Dependent Role="tblAbsence">
+        <PropertyRef Name="EmployerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Zadatak_49Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAbsences" EntityType="Self.tblAbsence" />
+    <EntitySet Name="tblEmployers" EntityType="Self.tblEmployer" />
+    <EntitySet Name="tblManagers" EntityType="Self.tblManager" />
+    <EntitySet Name="tblOwners" EntityType="Self.tblOwner" />
+    <AssociationSet Name="FK__tblAbsenc__Emplo__30F848ED" Association="Self.FK__tblAbsenc__Emplo__30F848ED">
+      <End Role="tblEmployer" EntitySet="tblEmployers" />
+      <End Role="tblAbsence" EntitySet="tblAbsences" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

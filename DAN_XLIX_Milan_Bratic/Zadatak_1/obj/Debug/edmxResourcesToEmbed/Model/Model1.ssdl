@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Zadatak_49Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblAbsence">
+    <Key>
+      <PropertyRef Name="AbsenceID" />
+    </Key>
+    <Property Name="AbsenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AbsenceStart" Type="date" />
+    <Property Name="AbsenceEnd" Type="date" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="1" />
+    <Property Name="EmployerID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblEmployer">
+    <Key>
+      <PropertyRef Name="EmployerID" />
+    </Key>
+    <Property Name="EmployerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="1" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="1" />
+    <Property Name="Username" Type="nvarchar" MaxLength="1" />
+    <Property Name="EmployerPassword" Type="nvarchar" MaxLength="1" />
+    <Property Name="HotelFloor" Type="int" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="1" />
+    <Property Name="Citizenship" Type="nvarchar" MaxLength="1" />
+    <Property Name="Engagement" Type="nvarchar" MaxLength="1" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="tblManager">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="1" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="1" />
+    <Property Name="Username" Type="nvarchar" MaxLength="1" />
+    <Property Name="MannagerPassword" Type="nvarchar" MaxLength="1" />
+    <Property Name="HotelFloor" Type="int" />
+    <Property Name="Experience" Type="int" />
+    <Property Name="ProfessionalQualifications" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="tblOwner">
+    <Key>
+      <PropertyRef Name="OwnerID" />
+    </Key>
+    <Property Name="OwnerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="1" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="1" />
+    <Property Name="Username" Type="nvarchar" MaxLength="1" />
+    <Property Name="OwnerPassword" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <Association Name="FK__tblAbsenc__Emplo__30F848ED">
+    <End Role="tblEmployer" Type="Self.tblEmployer" Multiplicity="0..1" />
+    <End Role="tblAbsence" Type="Self.tblAbsence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployer">
+        <PropertyRef Name="EmployerID" />
+      </Principal>
+      <Dependent Role="tblAbsence">
+        <PropertyRef Name="EmployerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Zadatak_49ModelStoreContainer">
+    <EntitySet Name="tblAbsence" EntityType="Self.tblAbsence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEmployer" EntityType="Self.tblEmployer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblManager" EntityType="Self.tblManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblOwner" EntityType="Self.tblOwner" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblAbsenc__Emplo__30F848ED" Association="Self.FK__tblAbsenc__Emplo__30F848ED">
+      <End Role="tblEmployer" EntitySet="tblEmployer" />
+      <End Role="tblAbsence" EntitySet="tblAbsence" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
